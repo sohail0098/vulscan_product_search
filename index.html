@@ -215,7 +215,8 @@
 				searchForm.addEventListener('submit', async (event) => {
 					event.preventDefault();
 					const query = searchInput.value.trim();
-					try { 
+					try {
+						resultsDiv.innerHTML = `<h2>Searching for ${query}...</h2>`;
 						document.getElementById('vuln-table').innerHTML = ``;
 						document.querySelectorAll('#clear-button').forEach(button => {
 							button.remove();
