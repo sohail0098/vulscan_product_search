@@ -132,7 +132,7 @@
 			}
 
 			async function loadCVEData(row, cveID) {
-				const response = await fetch(`https://cors-proxy.cooks.fyi/https://vulscan.warehouse.workers.dev/cve?cve=${cveID}`);
+				const response = await fetch(`${CORS_PROXIES[Math.floor(Math.random() * CORS_PROXIES.length)]}https://vulscan.warehouse.workers.dev/cve?cve=${cveID}`);
 				const data = await response.json();
 				var severity = data.cvss;
 				if (severity < 4) {
