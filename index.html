@@ -84,6 +84,9 @@
 		</div>
 
 		<script>
+			function copyToClipboard() {
+				navigator.clipboard.writeText(event.target.innerText);
+			}
 
 			const CORS_PROXIES = [
 				"https://cors-proxy.cooks.fyi/",
@@ -143,11 +146,11 @@
 					severity = severity.toString() + ' (High)';
 				}
 				row.innerHTML = `
-					<td>${data.cve_id}</td>
-					<td>${data.summary}</td>
-					<td>${severity}</td>
-					<td>${data.propose_action || 'N/A'}</td>
-					<td>${data.kev}</td>
+					<td onclick="copyToClipboard()">${data.cve_id}</td>
+					<td onclick="copyToClipboard()">${data.summary}</td>
+					<td onclick="copyToClipboard()">${severity}</td>
+					<td onclick="copyToClipboard()">${data.propose_action || 'N/A'}</td>
+					<td onclick="copyToClipboard()">${data.kev}</td>
 				`;
 			}
 
@@ -165,7 +168,7 @@
 				vulns.forEach((cveID) => {
 					const row = document.createElement('tr');
 					row.innerHTML = `
-						<td>${cveID}</td>
+						<td onclick="copyToClipboard()">${cveID}</td>
 						<td>Loading...</td>
 						<td>Loading...</td>
 						<td>Loading...</td>
